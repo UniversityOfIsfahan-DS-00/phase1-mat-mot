@@ -9,20 +9,20 @@ TARGET += IMDB-review
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    imdb_class/imdb_class.cpp \
+    class-source/file_class.cpp \
+    class-source/move_class.cpp \
     main.cpp \
-    main-IMDB/imdb.cpp \
-    source_class/source_class.cpp \
-    user_class/user_class.cpp
+    main-page/imdb.cpp \
+    class-source/user_class.cpp
 
 HEADERS += \
-    imdb_class/imdb_class.h \
-    main-IMDB/imdb.h \
-    source_class/source_class.h \
-    user_class/user_class.h
+    class-source/file_class.h \
+    class-source/move_class.h \
+    main-page/imdb.h \
+    class-source/user_class.h
 
 FORMS += \
-    main-IMDB/imdb.ui
+    main-page/imdb.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

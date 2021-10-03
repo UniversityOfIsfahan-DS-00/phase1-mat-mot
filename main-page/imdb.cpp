@@ -6,19 +6,21 @@ IMDB::IMDB(QWidget *parent)
     , ui(new Ui::IMDB)
 {
     ui->setupUi(this);
+    this->data.load();
 }
 
 IMDB::~IMDB()
 {
+    this->data.save();
     delete ui;
 }
 
-const source &IMDB::getData() const
+const file &IMDB::getData() const
 {
     return data;
 }
 
-void IMDB::setData(const source &newData)
+void IMDB::setData(const file &newData)
 {
     data = newData;
 }

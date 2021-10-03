@@ -1,9 +1,9 @@
-#ifndef IMDB_CLASS_H
-#define IMDB_CLASS_H
+#ifndef MOVE_CLASS_H
+#define MOVE_CLASS_H
 #include <QString>
 #define ll long long
 
-class imdb_class
+class move_class
 {
     QString ID ;
     ll ordering ;
@@ -16,7 +16,7 @@ class imdb_class
     double averageRating ;
     ll numvotes ;
 public:
-    imdb_class();
+    move_class();
     const QString &getID() const;
     void setID(const QString &newID);
     long long getOrdering() const;
@@ -39,4 +39,4 @@ public:
     void setNumvotes(long long newNumvotes);
 };
 
-#endif // IMDB_CLASS_H
+#endif // MOVE_CLASS_H

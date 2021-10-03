@@ -2,7 +2,7 @@
 #define IMDB_H
 
 #include <QMainWindow>
-#include "source_class/source_class.h"
+#include "class-source/file_class.h"
 #include <QMessageBox>
 #include <QString>
 #include <QList>
@@ -19,11 +19,11 @@ public:
     IMDB(QWidget *parent = nullptr);
     ~IMDB();
 
-    const source &getData() const;
-    void setData(const source &newData);
+    const file &getData() const;
+    void setData(const file &newData);
 
 private:
     Ui::IMDB *ui;
-    source data ;
+    file data ;
 };
 #endif // IMDB_H
