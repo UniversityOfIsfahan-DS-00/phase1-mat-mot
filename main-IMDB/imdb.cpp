@@ -13,3 +13,13 @@ IMDB::~IMDB()
     delete ui;
 }
 
+const source &IMDB::getData() const
+{
+    return data;
+}
+
+void IMDB::setData(const source &newData)
+{
+    data = newData;
+}
+

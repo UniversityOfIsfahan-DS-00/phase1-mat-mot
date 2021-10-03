@@ -1,4 +1,4 @@
-#include "imdb.h"
+#include "main-IMDB/imdb.h"
 
 #include <QApplication>
 
