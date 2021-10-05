@@ -7,6 +7,17 @@ IMDB::IMDB(QWidget *parent)
 {
     ui->setupUi(this);
     this->data.load();
+    this->setlist() ;
+    if (data.my_user.size()==0)
+    {
+        User tmp  ;
+        QString n = "ADMIN" ;
+        tmp.setName(n);
+        tmp.setHpassword(qHash(n));
+        tmp.setUsername(n);
+        tmp.setEmail("ADMIN@ADMIN.com");
+        data.my_user.push_back(tmp) ;
+    }
 }
 
 IMDB::~IMDB()
@@ -23,5 +34,10 @@ const file &IMDB::getData() const
 void IMDB::setData(const file &newData)
 {
     data = newData;
+}
+
+void IMDB::setlist()
+{
+    ui->title_list->addItems(data.items("move")) ;
 }
 

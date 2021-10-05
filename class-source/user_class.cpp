@@ -1,46 +1,46 @@
 #include "user_class.h"
 
-const QString &user::getName() const
+const QString &User::getName() const
 {
     return name;
 }
 
-void user::setName(const QString &newName)
+void User::setName(const QString &newName)
 {
     name = newName;
 }
 
-const QString &user::getUsername() const
+const QString &User::getUsername() const
 {
     return username;
 }
 
-void user::setUsername(const QString &newUsername)
+void User::setUsername(const QString &newUsername)
 {
     username = newUsername;
 }
 
-const QString &user::getEmail() const
+const QString &User::getEmail() const
 {
     return email;
 }
 
-void user::setEmail(const QString &newEmail)
+void User::setEmail(const QString &newEmail)
 {
     email = newEmail;
 }
 
-long long user::getHpassword() const
+long long User::getHpassword() const
 {
     return hpassword;
 }
 
-void user::setHpassword(long long newHpassword)
+void User::setHpassword(long long newHpassword)
 {
     hpassword = newHpassword;
 }
 
-user::user()
+User::User()
 {
     this->hpassword = 0 ;
 }

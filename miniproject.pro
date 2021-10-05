@@ -13,16 +13,19 @@ SOURCES += \
     class-source/move_class.cpp \
     main.cpp \
     main-page/imdb.cpp \
-    class-source/user_class.cpp
+    class-source/user_class.cpp \
+    process-page/process.cpp
 
 HEADERS += \
     class-source/file_class.h \
     class-source/move_class.h \
     main-page/imdb.h \
-    class-source/user_class.h
+    class-source/user_class.h \
+    process-page/process.h
 
 FORMS += \
-    main-page/imdb.ui
+    main-page/imdb.ui \
+    process-page/process.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

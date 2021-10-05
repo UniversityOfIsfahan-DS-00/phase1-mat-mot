@@ -7,6 +7,7 @@
 #include <QString>
 #include <QList>
 #include <QHash>
+#include <QDebug>
 QT_BEGIN_NAMESPACE
 namespace Ui { class IMDB; }
 QT_END_NAMESPACE
@@ -21,9 +22,11 @@ public:
 
     const file &getData() const;
     void setData(const file &newData);
+    void setlist () ;
 
 private:
     Ui::IMDB *ui;
     file data ;
+
 };
 #endif // IMDB_H

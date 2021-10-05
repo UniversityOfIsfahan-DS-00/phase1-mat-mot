@@ -11,12 +11,13 @@
 #define endl "\n"
 class file
 {
-    QList<user> my_user ;
-    QList<move_class> my_imdb_class ;
 public:
     file();
-    const QList<user> &getMy_user() const;
-    void setMy_user(const QList<user> &newMy_user);
+    QStringList items (QString x) ;
+    QList<move_class> my_imdb_class ;
+    QList<User> my_user ;
+    const QList<User> &getMy_user() const;
+    void setMy_user(const QList<User> &newMy_user);
     const QList<move_class> &getMy_imdb_class() const;
     void setMy_imdb_class(const QList<move_class> &newMy_imdb_class);
     void load () ;

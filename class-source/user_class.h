@@ -3,14 +3,14 @@
 #include <QString>
 #define ll long long
 
-class user
+class User
 {
     QString name ;
     QString username ;
     QString email ;
     ll hpassword ;
 public:
-    user();
+    User();
     const QString &getName() const;
     void setName(const QString &newName);
     const QString &getUsername() const;
