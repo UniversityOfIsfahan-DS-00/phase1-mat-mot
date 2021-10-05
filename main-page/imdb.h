@@ -24,6 +24,15 @@ public:
     void setData(const file &newData);
     void setlist () ;
 
+private slots:
+    void on_search_box_textChanged(const QString &arg1);
+
+    void on_actionExit_triggered();
+
+    void on_actionCountact_Us_triggered();
+
+    void on_actionSave_Data_triggered();
+
 private:
     Ui::IMDB *ui;
     file data ;

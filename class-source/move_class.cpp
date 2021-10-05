@@ -50,22 +50,22 @@ void move_class::setLanguage(const QString &newLanguage)
     language = newLanguage;
 }
 
-const QString &move_class::getType() const
+const QStringList &move_class::getType() const
 {
     return type;
 }
 
-void move_class::setType(const QString &newType)
+void move_class::setType(const QStringList &newType)
 {
     type = newType;
 }
 
-const QString &move_class::getAttributes() const
+const QStringList &move_class::getAttributes() const
 {
     return attributes;
 }
 
-void move_class::setAttributes(const QString &newAttributes)
+void move_class::setAttributes(const QStringList &newAttributes)
 {
     attributes = newAttributes;
 }
@@ -98,6 +98,15 @@ long long move_class::getNumvotes() const
 void move_class::setNumvotes(long long newNumvotes)
 {
     numvotes = newNumvotes;
+}
+
+bool move_class::contains(QString n)
+{
+    if (this->ID.contains(n))
+        return true;
+    else if (this->title.contains(n))
+        return true;
+    return false;
 }
 
 move_class::move_class()

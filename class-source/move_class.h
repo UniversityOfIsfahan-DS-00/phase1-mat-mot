@@ -2,7 +2,7 @@
 #define MOVE_CLASS_H
 #include <QString>
 #define ll long long
-
+#include <QStringList>
 class move_class
 {
     QString ID ;
@@ -10,8 +10,8 @@ class move_class
     QString title ;
     QString region ;
     QString language ;
-    QString type ;
-    QString attributes ;
+    QStringList type ;
+    QStringList attributes ;
     bool isorginaltitle ;
     double averageRating ;
     ll numvotes ;
@@ -27,16 +27,17 @@ public:
     void setRegion(const QString &newRegion);
     const QString &getLanguage() const;
     void setLanguage(const QString &newLanguage);
-    const QString &getType() const;
-    void setType(const QString &newType);
-    const QString &getAttributes() const;
-    void setAttributes(const QString &newAttributes);
+    const QStringList &getType() const;
+    void setType(const QStringList &newType);
+    const QStringList &getAttributes() const;
+    void setAttributes(const QStringList &newAttributes);
     bool getIsorginaltitle() const;
     void setIsorginaltitle(bool newIsorginaltitle);
     double getAverageRating() const;
     void setAverageRating(double newAverageRating);
     long long getNumvotes() const;
     void setNumvotes(long long newNumvotes);
+    bool contains (QString n) ;
 };
 
 #endif // MOVE_CLASS_H

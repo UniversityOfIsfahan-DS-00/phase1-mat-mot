@@ -40,7 +40,28 @@ void User::setHpassword(long long newHpassword)
     hpassword = newHpassword;
 }
 
+const QStringList &User::getVotedlist() const
+{
+    return votedlist;
+}
+
+void User::setVotedlist(const QStringList &newVotedlist)
+{
+    votedlist = newVotedlist;
+}
+
 User::User()
 {
     this->hpassword = 0 ;
+}
+
+bool User::contains(QString n)
+{
+    if (this->username.contains(n))
+        return true;
+    else if (this->name.contains(n))
+        return true;
+    else if (this->email.contains(n))
+        return true;
+    return false;
 }

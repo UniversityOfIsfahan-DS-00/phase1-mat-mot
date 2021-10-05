@@ -8,6 +8,7 @@
 #include <QTextStream>
 #include <string.h>
 #include <QDebug>
+#include <QMessageBox>
 #define endl "\n"
 class file
 {
@@ -20,9 +21,12 @@ public:
     void setMy_user(const QList<User> &newMy_user);
     const QList<move_class> &getMy_imdb_class() const;
     void setMy_imdb_class(const QList<move_class> &newMy_imdb_class);
-    void load () ;
-    void save () ;
+    bool load () ;
+    bool save () ;
     QStringList separator (QString orginal , QString sep ) ;
+    QString disseparaor (QStringList list , QString sep ) ;
+    QList<move_class> mlistcontains (QString n) ;
+    QList<User> ulistcontains (QString n) ;
 };
 
 #endif // FILE_CLASS_H
