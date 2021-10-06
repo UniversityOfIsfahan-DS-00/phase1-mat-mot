@@ -6,87 +6,115 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>932</width>
-    <height>647</height>
+    <width>1290</width>
+    <height>559</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QFormLayout" name="formLayout">
-   <item row="0" column="1">
-    <widget class="QGroupBox" name="signup_gbox">
-     <property name="title">
-      <string>Sign Up</string>
+  <layout class="QHBoxLayout" name="horizontalLayout_15">
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="vote_gbox">
+     <property name="title">
+      <string>Vote</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLineEdit" name="signup_username">
-        <property name="placeholderText">
-         <string>Username</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_13">
+       <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <widget class="QLineEdit" name="signup_password">
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
-          </property>
-          <property name="placeholderText">
-           <string>Password</string>
+         <widget class="QLabel" name="vote_idlable">
+          <property name="text">
+           <string>ID : </string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="signup_passechomod">
-          <property name="text">
-           <string/>
+         <widget class="QLineEdit" name="vote_id">
+          <property name="readOnly">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_14">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
-         <widget class="QLineEdit" name="signu_passwordagain">
-          <property name="echoMode">
-           <enum>QLineEdit::Password</enum>
-          </property>
-          <property name="placeholderText">
-           <string>Password again</string>
+         <widget class="QLabel" name="vote_titlelable">
+          <property name="text">
+           <string>Title : </string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="signup_passagainechomod">
-          <property name="text">
-           <string/>
+         <widget class="QLineEdit" name="vote_title">
+          <property name="readOnly">
+           <bool>true</bool>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="signup_emai">
-        <property name="placeholderText">
-         <string>Email</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="signup_name">
-        <property name="placeholderText">
-         <string>Full name</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QPushButton" name="signup_cancelbtn">
+         <widget class="QLabel" name="vote_averageratinglable">
+          <property name="text">
+           <string>Avarage rating : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="vote_avaragerating">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_16">
+        <item>
+         <widget class="QLabel" name="vote_spinboxlable">
+          <property name="text">
+           <string>your rateing</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QDoubleSpinBox" name="vote_spinbox">
+          <property name="decimals">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <double>10.000000000000000</double>
+          </property>
+          <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <item>
+         <widget class="QPushButton" name="vote_cancelbtn">
           <property name="text">
            <string>Cancel</string>
           </property>
@@ -97,9 +125,9 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="signup_signupbtn">
+         <widget class="QPushButton" name="vote_confirmbtn">
           <property name="text">
-           <string>Sign up</string>
+           <string>Confirm</string>
           </property>
           <property name="icon">
            <iconset resource="../data/icon.qrc">
@@ -112,7 +140,7 @@
      </layout>
     </widget>
    </item>
-   <item row="0" column="0">
+   <item>
     <widget class="QGroupBox" name="signin_gbox">
      <property name="title">
       <string>Sign In</string>
@@ -212,7 +240,7 @@ thanks for your attention !</string>
      </layout>
     </widget>
    </item>
-   <item row="1" column="1">
+   <item>
     <widget class="QGroupBox" name="accountedit_gbox">
      <property name="title">
       <string>Account Edit</string>
@@ -379,108 +407,79 @@ thanks for your attention !</string>
      </layout>
     </widget>
    </item>
-   <item row="1" column="0">
-    <widget class="QGroupBox" name="vote_gbox">
+   <item>
+    <widget class="QGroupBox" name="signup_gbox">
      <property name="title">
-      <string>Vote</string>
+      <string>Sign Up</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="vote_idlable">
-          <property name="text">
-           <string>ID : </string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="vote_id">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <item>
-         <widget class="QLabel" name="vote_titlelable">
-          <property name="text">
-           <string>Title : </string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="vote_title">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QLabel" name="vote_averageratinglable">
-          <property name="text">
-           <string>Avarage rating : </string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="vote_avaragerating">
-          <property name="readOnly">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <widget class="QSplitter" name="splitter">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
+       <widget class="QLineEdit" name="signup_username">
+        <property name="placeholderText">
+         <string>Username</string>
         </property>
-        <widget class="QSlider" name="vote_parametr">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>15</height>
-          </size>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-        <widget class="QProgressBar" name="vote_progress">
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>15</height>
-          </size>
-         </property>
-         <property name="maximum">
-          <number>99</number>
-         </property>
-         <property name="value">
-          <number>0</number>
-         </property>
-         <property name="textDirection">
-          <enum>QProgressBar::TopToBottom</enum>
-         </property>
-         <property name="format">
-          <string>%p%</string>
-         </property>
-        </widget>
        </widget>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_11">
+       <layout class="QHBoxLayout" name="horizontalLayout_13">
         <item>
-         <widget class="QPushButton" name="vote_cancelbtn">
+         <widget class="QLineEdit" name="signup_password">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Password</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="signup_passechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_14">
+        <item>
+         <widget class="QLineEdit" name="signu_passwordagain">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Password again</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="signup_passagainechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signup_emai">
+        <property name="placeholderText">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signup_name">
+        <property name="placeholderText">
+         <string>Full name</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QPushButton" name="signup_cancelbtn">
           <property name="text">
            <string>Cancel</string>
           </property>
@@ -491,9 +490,9 @@ thanks for your attention !</string>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="vote_confirmbtn">
+         <widget class="QPushButton" name="signup_signupbtn">
           <property name="text">
-           <string>Confirm</string>
+           <string>Sign up</string>
           </property>
           <property name="icon">
            <iconset resource="../data/icon.qrc">
@@ -506,27 +505,23 @@ thanks for your attention !</string>
      </layout>
     </widget>
    </item>
+   <item>
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
  <resources>
   <include location="../data/icon.qrc"/>
  </resources>
- <connections>
-  <connection>
-   <sender>vote_parametr</sender>
-   <signal>sliderMoved(int)</signal>
-   <receiver>vote_progress</receiver>
-   <slot>setValue(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>424</x>
-     <y>327</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>444</x>
-     <y>389</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

@@ -336,9 +336,9 @@ void process::on_vote_confirmbtn_clicked()
     int ret = QMessageBox :: critical(this , "close" , "are you sure ???\nyou can't vote again!!" , "yes"  ,"cansel");
     if (ret == 0)
     {
-        int i= ui->vote_parametr->value() ;
+        int i= ui->vote_spinbox->value() ;
         double tt = current_movie.getAverageRating()*current_movie.getNumvotes() ;
-        current_movie.setAverageRating((tt + (i/10) )/(current_movie.getNumvotes()+1)) ;
+        current_movie.setAverageRating((tt + (i) )/(current_movie.getNumvotes()+1)) ;
         current_movie.setNumvotes(current_movie.getNumvotes()+1) ;
         this->close();
     }

@@ -120,6 +120,11 @@ void IMDB::on_title_list_itemClicked(QListWidgetItem *item)
 
 void IMDB::on_actionVote_Movie_triggered()
 {
+    if (ui->title_list->selectedItems().size()==0)
+    {
+        QMessageBox::information(this , "vote" , "please select a movie from list first !") ;
+        return;
+    }
     QString tt , tm = ui->title_list->currentItem()->text() ;
     for (int i=0 ; i<tm.size() ; i++)
         if (tm[i]== '[')
@@ -149,7 +154,7 @@ void IMDB::on_actionVote_Movie_triggered()
 
     this->data.edit_movie(tmp->getCurrent_movie()) ;
     QStringList ttt =  current_user.getVotedlist() ;
-    tt.append(tmp->getCurrent_movie().getID()) ;
+    ttt.append(tmp->getCurrent_movie().getID()) ;
     current_user.setVotedlist(ttt) ;
     data.edit_user(current_user) ;
     delete tmp ;
@@ -185,6 +190,7 @@ void IMDB::on_actionTop_10_triggered()
 void IMDB::on_actionRefresh_triggered()
 {
     ui->title_list->clear();
+    ui->search_box->clear();
     this->setlist();
     ui->title_list->setSortingEnabled(true) ;
     ui->info_TextEdit->clear();
