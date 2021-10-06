@@ -34,8 +34,18 @@
          <height>16777215</height>
         </size>
        </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
+       </property>
       </widget>
-      <widget class="QColumnView" name="info_columnView"/>
+      <widget class="QPlainTextEdit" name="info_TextEdit">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="placeholderText">
+        <string>info veiw</string>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -63,6 +73,7 @@
     <property name="title">
      <string>Manage</string>
     </property>
+    <addaction name="actionVote_Movie"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -116,6 +127,11 @@
   <action name="actionTop_10">
    <property name="text">
     <string>Top 10</string>
+   </property>
+  </action>
+  <action name="actionVote_Movie">
+   <property name="text">
+    <string>Vote Movie</string>
    </property>
   </action>
  </widget>

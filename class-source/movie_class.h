@@ -1,9 +1,9 @@
-#ifndef MOVE_CLASS_H
-#define MOVE_CLASS_H
+#ifndef MOVIE_CLASS_H
+#define MOVIE_CLASS_H
 #include <QString>
 #define ll long long
 #include <QStringList>
-class move_class
+class movie_class
 {
     QString ID ;
     ll ordering ;
@@ -16,7 +16,7 @@ class move_class
     double averageRating ;
     ll numvotes ;
 public:
-    move_class();
+    movie_class();
     const QString &getID() const;
     void setID(const QString &newID);
     long long getOrdering() const;
@@ -40,4 +40,4 @@ public:
     bool contains (QString n) ;
 };
 
-#endif // MOVE_CLASS_H
+#endif // MOVIE_CLASS_H

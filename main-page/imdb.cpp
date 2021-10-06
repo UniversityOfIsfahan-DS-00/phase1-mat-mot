@@ -21,6 +21,7 @@ IMDB::IMDB(QWidget *parent)
     }
     process * tmp = new process () ;
     tmp->open() ;
+
 }
 
 IMDB::~IMDB()
@@ -47,7 +48,7 @@ void IMDB::setlist()
 
 void IMDB::on_search_box_textChanged(const QString &arg1)
 {
-    QList<move_class> tmp = data.mlistcontains(arg1) ;
+    QList<movie_class> tmp = data.mlistcontains(arg1) ;
     ui->title_list->clear() ;
     for (int i=0 ; i<tmp.size() ;i++)
         ui->title_list->addItem(tmp.at(i).getTitle() + " [" +tmp.at(i).getID() + "]") ;
@@ -75,5 +76,42 @@ void IMDB::on_actionSave_Data_triggered()
 {
     if (data.save() )
         QMessageBox::information(this , "Save" , "your data seccesfully saved!") ;
+}
+
+
+void IMDB::on_title_list_itemClicked(QListWidgetItem *item)
+{
+    ui->info_TextEdit->clear() ;
+    QString tmp = item->text() ;
+    QString tt;
+    QStringList tmpp ;
+    for (int i=0 ; i<tmp.size() ; i++)
+        if (tmp[i]== '[')
+        {
+            i++ ;
+            while (tmp[i]!= ']')
+            {
+                tt += tmp[i] ;
+                i++ ;
+            }
+        }
+    movie_class temp =  data.mlistcontains(tt).at(0) ;
+    tmp = "ID :\n" + temp.getID() + "\n";
+    tmp += "Ordering :\n" + QString::number( temp.getOrdering()) + "\n";
+    tmp += "Title :\n" + temp.getTitle() + "\n";
+    tmp += "Region :\n" + temp.getRegion() + "\n";
+    tmp += "Language :\n" + temp.getLanguage() + "\n";
+    tmp += "Type :\n" ;
+    tmpp = temp.getType() ;
+    for (int i=0 ; i<tmpp.size() ;i++)
+        tmp += tmpp.at(i) + "\n" ;
+    tmp += "Attributes :\n" ;
+    tmpp = temp.getAttributes() ;
+    for (int i=0 ; i<tmpp.size() ;i++)
+        tmp += tmpp.at(i) + "\n" ;
+    tmp += "is orginal title :\n" + QString::number( temp.getIsorginaltitle()) +"\n" ;
+    tmp += "averageRating :\n" + QString::number( temp.getAverageRating()) +"\n" ;
+    tmp += "number of votes :\n" + QString::number( temp.getNumvotes()) +"\n" ;
+    ui->info_TextEdit->setPlainText(tmp) ;
 }
 

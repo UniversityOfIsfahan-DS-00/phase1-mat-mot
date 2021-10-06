@@ -6,312 +6,438 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>681</width>
-    <height>640</height>
+    <width>932</width>
+    <height>647</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QGroupBox" name="groupBox_2">
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="1">
+    <widget class="QGroupBox" name="signup_gbox">
      <property name="title">
       <string>Sign Up</string>
      </property>
-     <widget class="QLineEdit" name="lineEdit_5">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>50</y>
-        <width>113</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_6">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>100</y>
-        <width>113</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_7">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>130</y>
-        <width>113</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_8">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>170</y>
-        <width>113</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="geometry">
-       <rect>
-        <x>220</x>
-        <y>250</y>
-        <width>80</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>250</y>
-        <width>80</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QLineEdit" name="signup_username">
+        <property name="placeholderText">
+         <string>Username</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signup_password">
+        <property name="placeholderText">
+         <string>Password</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signu_passwordagain">
+        <property name="placeholderText">
+         <string>Password again</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signup_emai">
+        <property name="placeholderText">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signup_name">
+        <property name="placeholderText">
+         <string>Full name</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QPushButton" name="signup_cancelbtn">
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="signup_signupbtn">
+          <property name="text">
+           <string>Sign up</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-checkbox.svg</normaloff>:/new/icon/svg/fi-rr-checkbox.svg</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </widget>
    </item>
    <item row="0" column="0">
-    <widget class="QGroupBox" name="groupBox">
+    <widget class="QGroupBox" name="signin_gbox">
      <property name="title">
       <string>Sign In</string>
      </property>
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>33</y>
-        <width>108</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_2">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>64</y>
-        <width>108</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>95</y>
-        <width>80</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="geometry">
-       <rect>
-        <x>101</x>
-        <y>95</y>
-        <width>80</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>127</y>
-        <width>80</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_3">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>159</y>
-        <width>108</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_4">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>190</y>
-        <width>108</width>
-        <height>24</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="geometry">
-       <rect>
-        <x>101</x>
-        <y>221</y>
-        <width>80</width>
-        <height>25</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="geometry">
-       <rect>
-        <x>14</x>
-        <y>253</y>
-        <width>55</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QLineEdit" name="signin_username">
+        <property name="placeholderText">
+         <string>Username</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signin_password">
+        <property name="placeholderText">
+         <string>Password</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="signin_email">
+        <property name="placeholderText">
+         <string>Email</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="signin_forgetpasscheckbox">
+        <property name="text">
+         <string>Forget password ???</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../data/icon.qrc">
+          <normaloff>:/new/icon/svg/fi-rr-interrogation.svg</normaloff>:/new/icon/svg/fi-rr-interrogation.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="signin_lable">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>write your username and email then
+if its right we send a new password 
+for you 
+thanks for your attention !</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QPushButton" name="signin_cancelbtn">
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="signin_signinbtn">
+          <property name="text">
+           <string>Sign in</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-checkbox.svg</normaloff>:/new/icon/svg/fi-rr-checkbox.svg</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </widget>
    </item>
-   <item row="0" column="1" rowspan="2">
-    <widget class="QGroupBox" name="groupBox_3">
+   <item row="1" column="1">
+    <widget class="QGroupBox" name="accountedit_gbox">
+     <property name="title">
+      <string>Account Edit</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="accedit_usernamelable">
+          <property name="text">
+           <string>Username : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="accedit_username">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <widget class="QLabel" name="accedit_namelabel">
+          <property name="text">
+           <string>Full name : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="accedit_name"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <widget class="QLabel" name="accedidt_emaillable">
+          <property name="text">
+           <string>Email : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="accedit_email"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_8">
+        <item>
+         <widget class="QLabel" name="accedit_passwordlable">
+          <property name="text">
+           <string>Password : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="accedit_password"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="accedit_changepass">
+        <property name="text">
+         <string>Change Password ?</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../data/icon.qrc">
+          <normaloff>:/new/icon/svg/fi-rr-interrogation.svg</normaloff>:/new/icon/svg/fi-rr-interrogation.svg</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_18">
+        <item>
+         <widget class="QLabel" name="accedit_newpasswordlable">
+          <property name="text">
+           <string>New Password : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="accedit_newpassword"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_19">
+        <item>
+         <widget class="QLabel" name="accedit_newpasswordagainlable">
+          <property name="text">
+           <string>New Password again : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="accedit_newpasswordagain"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_12">
+        <item>
+         <widget class="QPushButton" name="accedit_cancelbtn">
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="accedit_confirmbtn">
+          <property name="text">
+           <string>Confirm</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-checkbox.svg</normaloff>:/new/icon/svg/fi-rr-checkbox.svg</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QGroupBox" name="vote_gbox">
      <property name="title">
       <string>Vote</string>
      </property>
-     <widget class="QWidget" name="layoutWidget_3">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>140</y>
-        <width>172</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>TextLabel</string>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="vote_idlable">
+          <property name="text">
+           <string>ID : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="vote_id">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="vote_titlelable">
+          <property name="text">
+           <string>Title : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="vote_title">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="vote_averageratinglable">
+          <property name="text">
+           <string>Avarage rating : </string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="vote_avaragerating">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QSplitter" name="splitter">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QSlider" name="vote_parametr">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
          </property>
         </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_12"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget_4">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>100</y>
-        <width>172</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>TextLabel</string>
+        <widget class="QProgressBar" name="vote_progress">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>15</height>
+          </size>
+         </property>
+         <property name="maximum">
+          <number>99</number>
+         </property>
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="textDirection">
+          <enum>QProgressBar::TopToBottom</enum>
+         </property>
+         <property name="format">
+          <string>%p%</string>
          </property>
         </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_13"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QSplitter" name="splitter">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>400</y>
-        <width>171</width>
-        <height>42</height>
-       </rect>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <widget class="QSlider" name="horizontalSlider">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-      <widget class="QProgressBar" name="progressBar">
-       <property name="maximum">
-        <number>99</number>
-       </property>
-       <property name="value">
-        <number>0</number>
-       </property>
-       <property name="textDirection">
-        <enum>QProgressBar::TopToBottom</enum>
-       </property>
-       <property name="format">
-        <string>%p%</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>60</y>
-        <width>172</width>
-        <height>26</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lineEdit_9"/>
-       </item>
-      </layout>
-     </widget>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <item>
+         <widget class="QPushButton" name="vote_cancelbtn">
+          <property name="text">
+           <string>Cancel</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</normaloff>:/new/icon/svg/fi-rr-cross-circle.svg</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="vote_confirmbtn">
+          <property name="text">
+           <string>Confirm</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../data/icon.qrc">
+            <normaloff>:/new/icon/svg/fi-rr-checkbox.svg</normaloff>:/new/icon/svg/fi-rr-checkbox.svg</iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../data/icon.qrc"/>
+ </resources>
  <connections>
   <connection>
-   <sender>horizontalSlider</sender>
+   <sender>vote_parametr</sender>
    <signal>sliderMoved(int)</signal>
-   <receiver>progressBar</receiver>
+   <receiver>vote_progress</receiver>
    <slot>setValue(int)</slot>
    <hints>
     <hint type="sourcelabel">

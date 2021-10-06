@@ -8,6 +8,7 @@
 #include <QList>
 #include <QHash>
 #include <QDebug>
+#include <QListWidgetItem>
 QT_BEGIN_NAMESPACE
 namespace Ui { class IMDB; }
 QT_END_NAMESPACE
@@ -33,9 +34,12 @@ private slots:
 
     void on_actionSave_Data_triggered();
 
+    void on_title_list_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::IMDB *ui;
     file data ;
+    User current_user ;
 
 };
 #endif // IMDB_H

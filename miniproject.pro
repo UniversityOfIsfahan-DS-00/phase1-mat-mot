@@ -10,7 +10,7 @@ TARGET += IMDB-review
 
 SOURCES += \
     class-source/file_class.cpp \
-    class-source/move_class.cpp \
+    class-source/movie_class.cpp \
     main.cpp \
     main-page/imdb.cpp \
     class-source/user_class.cpp \
@@ -18,7 +18,7 @@ SOURCES += \
 
 HEADERS += \
     class-source/file_class.h \
-    class-source/move_class.h \
+    class-source/movie_class.h \
     main-page/imdb.h \
     class-source/user_class.h \
     process-page/process.h
@@ -31,3 +31,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    data/icon.qrc

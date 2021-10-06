@@ -1,6 +1,6 @@
 #ifndef FILE_CLASS_H
 #define FILE_CLASS_H
-#include "class-source/move_class.h"
+#include "class-source/movie_class.h"
 #include "class-source/user_class.h"
 #include <QList>
 #include <QString>
@@ -15,17 +15,17 @@ class file
 public:
     file();
     QStringList items (QString x) ;
-    QList<move_class> my_imdb_class ;
+    QList<movie_class> my_imdb_class ;
     QList<User> my_user ;
     const QList<User> &getMy_user() const;
     void setMy_user(const QList<User> &newMy_user);
-    const QList<move_class> &getMy_imdb_class() const;
-    void setMy_imdb_class(const QList<move_class> &newMy_imdb_class);
+    const QList<movie_class> &getMy_imdb_class() const;
+    void setMy_imdb_class(const QList<movie_class> &newMy_imdb_class);
     bool load () ;
     bool save () ;
     QStringList separator (QString orginal , QString sep ) ;
     QString disseparaor (QStringList list , QString sep ) ;
-    QList<move_class> mlistcontains (QString n) ;
+    QList<movie_class> mlistcontains (QString n) ;
     QList<User> ulistcontains (QString n) ;
 };
 

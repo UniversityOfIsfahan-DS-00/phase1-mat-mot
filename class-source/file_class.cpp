@@ -10,12 +10,12 @@ void file::setMy_user(const QList<User> &newMy_user)
     my_user = newMy_user;
 }
 
-const QList<move_class> &file::getMy_imdb_class() const
+const QList<movie_class> &file::getMy_imdb_class() const
 {
     return my_imdb_class;
 }
 
-void file::setMy_imdb_class(const QList<move_class> &newMy_imdb_class)
+void file::setMy_imdb_class(const QList<movie_class> &newMy_imdb_class)
 {
     my_imdb_class = newMy_imdb_class;
 }
@@ -51,7 +51,7 @@ bool file::load()
         QStringList tmp = separator(tp , "\t") ;
         QString ttp = imdbratqts.readLine() ;
         QStringList ttmp = separator(ttp , "\t") ;
-        move_class newone ;
+        movie_class newone ;
         //qInfo() << tmp.at(1) << endl ;
         newone.setID(tmp.at(0)) ;
         newone.setOrdering(tmp.at(1).toLongLong()) ;
@@ -61,10 +61,10 @@ bool file::load()
         QString a (tmp.at(5)) ;
         QString b (tmp.at(6)) ;
         newone.setType( separator(a , " ") );
-        newone.setType( separator(b , " ") );
+        newone.setAttributes( separator(b , " ") );
         newone.setIsorginaltitle(tmp.at(7).toInt()) ;
-        newone.setAverageRating(ttmp.at(0).toDouble()) ;
-        newone.setNumvotes(ttmp.at(1).toULongLong()) ;
+        newone.setAverageRating(ttmp.at(1).toDouble()) ;
+        newone.setNumvotes(ttmp.at(2).toULongLong()) ;
         this->my_imdb_class.push_back(newone) ;
     }
     imdb.close() ;
@@ -183,9 +183,9 @@ QString file::disseparaor(QStringList list, QString sep)
     return tmp ;
 }
 
-QList<move_class> file::mlistcontains(QString n)
+QList<movie_class> file::mlistcontains(QString n)
 {
-    QList<move_class> tmp ;
+    QList<movie_class> tmp ;
     for (auto x = my_imdb_class.begin() ; x != my_imdb_class.end() ;++x)
     {
         if (x->contains(n))
