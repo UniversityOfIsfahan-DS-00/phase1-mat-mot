@@ -1,2 +1,2 @@
 username	hashedpassword	name	email	votedmovelist
-ADMIN	7263248931477017842	ADMIN	ADMIN@ADMIN.com	                                 
+ADMIN	7263248931477017842	ADMIN	ADMIN@ADMIN.com	                                      

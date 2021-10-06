@@ -116,3 +116,10 @@ movie_class::movie_class()
     this->isorginaltitle = 0 ;
     this->averageRating = 0 ;
 }
+
+bool movie_class::operator >(movie_class tmp)
+{
+    if (this->averageRating > tmp.getAverageRating())
+        return true;
+    return false;
+}

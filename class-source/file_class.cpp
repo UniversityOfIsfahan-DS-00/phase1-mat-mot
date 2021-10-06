@@ -249,6 +249,31 @@ void file::edit_user(User tmp)
     }
 }
 
+QVector<movie_class> file::sort_movie()
+{
+    QVector<movie_class> tmp = my_imdb_class.toVector() ;
+    for (int i=0 ; i<tmp.size() ; i++)
+        for (int j=0 ; j<tmp.size()-i-1 ; j++)
+        {
+            if (  tmp.at(j).getAverageRating() > tmp.at(j+1).getAverageRating())
+            {
+                tmp.swapItemsAt(j , j+1) ;
+            }
+        }
+    return tmp;
+//    auto iia=my_imdb_class.cbegin() ;
+//    for (auto ito = this->my_imdb_class.begin() ; ito  != my_imdb_class.end() ; ++ito )
+//        for ( auto itto = this->my_imdb_class.begin() ; itto  != iia ; ++itto, ++iia)
+//        {
+//            if ( *itto > *(++itto) )
+//            {
+//                movie_class x = *(++itto) ;
+//                *(++itto) = *itto ;
+//                *itto = x ;
+//            }
+//        }
+}
+
 QStringList file::items(QString x)
 {
     QStringList tmp ;

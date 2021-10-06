@@ -80,6 +80,7 @@
      <string>Tools</string>
     </property>
     <addaction name="actionTop_10"/>
+    <addaction name="actionRefresh"/>
     <addaction name="actionSave_Data"/>
     <addaction name="actionCountact_Us"/>
     <addaction name="actionExit"/>
@@ -132,6 +133,11 @@
   <action name="actionVote_Movie">
    <property name="text">
     <string>Vote Movie</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="text">
+    <string>Refresh</string>
    </property>
   </action>
  </widget>

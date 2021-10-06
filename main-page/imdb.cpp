@@ -102,13 +102,15 @@ void IMDB::on_title_list_itemClicked(QListWidgetItem *item)
     tmp += "Region :\n" + temp.getRegion() + "\n";
     tmp += "Language :\n" + temp.getLanguage() + "\n";
     tmp += "Type :\n" ;
+    tmpp.clear();
     tmpp = temp.getType() ;
-    for (int i=0 ; i<tmpp.size() ;i++)
-        tmp += tmpp.at(i) + "\n" ;
+    for (int i=0 ; i<temp.getType().size() ;i++)
+        tmp += tmpp.at(i) + "-" ;
     tmp += "Attributes :\n" ;
+    tmpp.clear() ;
     tmpp = temp.getAttributes() ;
     for (int i=0 ; i<tmpp.size() ;i++)
-        tmp += tmpp.at(i) + "\n" ;
+        tmp += tmpp.at(i) + "-" ;
     tmp += "is orginal title :\n" + QString::number( temp.getIsorginaltitle()) +"\n" ;
     tmp += "averageRating :\n" + QString::number( temp.getAverageRating()) +"\n" ;
     tmp += "number of votes :\n" + QString::number( temp.getNumvotes()) +"\n" ;
@@ -163,5 +165,28 @@ void IMDB::on_actionLogin_triggered()
     tmp->exec() ;
     current_user = tmp->getCurrent_user() ;
     delete tmp ;
+}
+
+
+void IMDB::on_actionTop_10_triggered()
+{
+    ui->title_list->clear();
+    ui->title_list->setSortingEnabled(false) ;
+     QVector<movie_class> tmp =  data.sort_movie();
+//     for (int i=0 , j= data.my_imdb_class.size() ; i<data.my_imdb_class.size() && j>=0 ;j-- , i++)
+//     {
+//        ui->title_list->addItem(QString::number(i+1)+". "+data.my_imdb_class.at(j).getTitle()+ " [" + data.my_imdb_class.at(j).getID()+"]");
+//     }
+     for (int i=tmp.size()-1 , j=1 ; i>= 0 ; j++ , i--)
+         ui->title_list->addItem(QString::number(j) + ". "+tmp.at(i).getTitle()+" [" + tmp.at(i).getID()+"]");
+}
+
+
+void IMDB::on_actionRefresh_triggered()
+{
+    ui->title_list->clear();
+    this->setlist();
+    ui->title_list->setSortingEnabled(true) ;
+    ui->info_TextEdit->clear();
 }
 

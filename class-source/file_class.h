@@ -9,6 +9,8 @@
 #include <string.h>
 #include <QDebug>
 #include <QMessageBox>
+#include <list>
+#include <QVector>
 #define endl "\n"
 class file
 {
@@ -16,6 +18,7 @@ public:
     file();
     void edit_movie (movie_class tmp) ;
     void edit_user (User tmp );
+    QVector<movie_class> sort_movie () ;
     QStringList items (QString x) ;
     QList<movie_class> my_imdb_class ;
     QList<User> my_user ;

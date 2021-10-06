@@ -41,6 +41,10 @@ private slots:
 
     void on_actionLogin_triggered();
 
+    void on_actionTop_10_triggered();
+
+    void on_actionRefresh_triggered();
+
 private:
     Ui::IMDB *ui;
     file data ;

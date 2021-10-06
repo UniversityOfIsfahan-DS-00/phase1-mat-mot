@@ -17,6 +17,7 @@ class movie_class
     ll numvotes ;
 public:
     movie_class();
+    bool operator > (movie_class tmp) ;
     const QString &getID() const;
     void setID(const QString &newID);
     long long getOrdering() const;
