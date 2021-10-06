@@ -205,10 +205,48 @@ QList<User> file::ulistcontains(QString n)
     return tmp;
 }
 
+void file::remove_user(QString username)
+{
+    int i=0 ;
+    for (auto x = my_imdb_class.begin() ; x != my_imdb_class.end() ;++x , i++)
+    {
+        if (x->contains(username))
+            my_user.removeAt(i) ;
+    }
+}
+
+void file::remove_movie(QString ID)
+{
+    int i=0 ;
+    for (auto x = my_imdb_class.begin() ; x != my_imdb_class.end() ; ++x,i++)
+    {
+        if (x->contains(ID))
+            my_imdb_class.removeAt(i) ;
+    }
+}
+
 
 file::file()
 {
 
+}
+
+void file::edit_movie(movie_class tmp)
+{
+    for (auto x = my_imdb_class.begin() ; x != my_imdb_class.end() ;++x)
+    {
+        if (x->contains(tmp.getID()))
+            *x = tmp ;
+    }
+}
+
+void file::edit_user(User tmp)
+{
+    for (auto x = my_user.begin() ; x != my_user.end() ;++x)
+    {
+        if (x->contains(tmp.getUsername()))
+            *x = tmp ;
+    }
 }
 
 QStringList file::items(QString x)

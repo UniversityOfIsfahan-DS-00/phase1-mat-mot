@@ -16,6 +16,10 @@ process::process(QWidget *parent) :
     ui->signup_emai->setValidator(new QRegularExpressionValidator(rx,this));
     QRegularExpression r("\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}\\b",QRegularExpression::CaseInsensitiveOption);
     ui->accedit_email->setValidator(new QRegularExpressionValidator(r,this));
+    ui->signin_gbox->hide();
+    ui->signup_gbox->hide();
+    ui->accountedit_gbox->hide();
+    ui->vote_gbox->hide();
 
 }
 
@@ -23,6 +27,33 @@ process::process(QWidget *parent) :
 process::~process()
 {
     delete ui;
+}
+
+void process::setpos(QString type)
+{
+    if (type == "Vote")
+    {
+        ui->vote_gbox->show();
+        ui->vote_id->setText(current_movie.getID());
+        ui->vote_title->setText(current_movie.getTitle());
+        ui->vote_avaragerating->setText(QString::number(current_movie.getAverageRating())) ;
+    }
+    else if (type == "sign in")
+    {
+        ui->signin_gbox->show();
+
+    }
+    else if (type == "sign up")
+    {
+        ui->signup_gbox->show();
+    }
+    else if (type == "account edit")
+    {
+        ui->accountedit_gbox->show() ;
+        ui->accedit_username->setText(current_user.getUsername());
+        ui->accedit_email->setText(current_user.getEmail()) ;
+        ui->accedit_name->setText(current_user.getName());
+    }
 }
 
 void process::on_signin_forgetpasscheckbox_clicked(bool checked)
@@ -72,7 +103,7 @@ void process::on_signup_signupbtn_clicked()
         QMessageBox ::information(this , "wrong" , "your password doesn't match fill again") ;
         return;
     }
-    if (ui->signup_username->text() == child_data.ulistcontains(ui->signup_username->text()).at(0).getUsername())
+    if (ui->signup_username->text() == (*child_d).ulistcontains(ui->signup_username->text()).at(0).getUsername())
     {
         QMessageBox::information(this , "warning" , "the user that you want to create already existed !!!") ;
         return  ;
@@ -95,7 +126,7 @@ void process::on_signup_signupbtn_clicked()
     tmp.setHpassword(qHash(ui->signup_password->text()));
     tmp.setEmail(ui->signup_emai->text());
     tmp.setName(ui->signup_name->text());
-    child_data.my_user.push_front(tmp) ;
+    (*child_d).my_user.push_front(tmp) ;
     QMessageBox::information(this , "registered" , "your register was seccesful now you can login .");
     ui->signin_gbox->close() ;
     ui->signup_username->clear() ;
@@ -104,26 +135,6 @@ void process::on_signup_signupbtn_clicked()
     ui->signup_name->clear() ;
     ui->signu_passwordagain->clear() ;
     ui->signin_gbox->show() ;
-}
-
-const User &process::getCurrent_user() const
-{
-    return current_user;
-}
-
-void process::setCurrent_user(const User &newCurrent_user)
-{
-    current_user = newCurrent_user;
-}
-
-const file &process::getChild_data() const
-{
-    return child_data;
-}
-
-void process::setChild_data(const file &newChild_data)
-{
-    child_data = newChild_data;
 }
 
 
@@ -148,5 +159,192 @@ void process::on_signup_emai_textChanged()
         ui->signup_emai->setStyleSheet("QLineEdit {color : black}") ;
     else
         ui->signup_emai->setStyleSheet("QLineEdit {color : red}") ;
+}
+
+const User &process::getCurrent_user() const
+{
+    return current_user;
+}
+
+void process::setCurrent_user(const User &newCurrent_user)
+{
+    current_user = newCurrent_user;
+}
+
+file *process::getChild_d() const
+{
+    return child_d;
+}
+
+void process::setChild_d(file *newChild_d)
+{
+    child_d = newChild_d;
+}
+
+
+void process::on_signin_signinbtn_clicked()
+{
+    if (!ui->signin_forgetpasscheckbox->isChecked())
+    {
+        if (ui->signin_username->text().isEmpty() || ui->signin_password->text().isEmpty())
+        {
+            QMessageBox::information(this , "faild" , "please fill in the blanks !") ;
+            return;
+        }
+        User tmp , tp ;
+        tmp.setUsername(ui->signin_username->text()) ;
+        tmp.setHpassword(qHash(ui->signin_password->text())) ;
+        tp = (*child_d).ulistcontains(ui->signin_username->text()).at(0) ;
+        if (tp.getUsername() != tmp.getUsername() || tp.getHpassword() != tmp.getHpassword())
+        {
+            //ui->infolbldetail->setText("your user or pass dose not correct !!") ;
+            QMessageBox::information(this , "login" , "user or password was wrong please try again :-) ") ;
+            ui->signin_password->clear() ;
+            return;
+        }
+        QMessageBox::information(this , "login" , "seccesfull !") ;
+        current_user = tp ;
+        this->close() ;
+    }
+    else
+    {
+        if (ui->signin_email->text().isEmpty()||ui->signin_username->text().isEmpty())
+        {
+            QMessageBox::information(this , "faild" , "please fill in the blanks !") ;
+            return;
+        }
+        User tmp , tp ;
+        tmp.setUsername(ui->signin_username->text()) ;
+        tmp.setEmail(ui->signin_email->text()) ;
+        tp = (*child_d).ulistcontains(ui->signin_username->text()).at(0) ;
+        if (tp.getUsername() != tmp.getUsername() || tp.getEmail() != tmp.getEmail())
+        {
+            QMessageBox::information(this , "faild" , "your user or email dose not exist !!") ;
+            return;
+        }
+        QMessageBox::information(this , "recovery" , "we send new password to your email plaese login again") ;
+        ui->signin_username->clear() ;
+        ui->signin_email->clear() ;
+        ui->signin_password->clear() ;
+        ui->signin_forgetpasscheckbox->setChecked(false) ;
+    }
+}
+
+
+void process::on_signin_cancelbtn_clicked()
+{
+    this->close() ;
+}
+
+
+void process::on_signin_passechomod_clicked(bool checked)
+{
+    if (checked)
+    {
+        ui->signin_password->setEchoMode(QLineEdit::Normal) ;
+    }
+    else
+    {
+        ui->signin_password->setEchoMode(QLineEdit::Password) ;
+    }
+}
+
+
+void process::on_signup_passechomod_clicked(bool checked)
+{
+    if (checked)
+    {
+        ui->signup_password->setEchoMode(QLineEdit::Normal) ;
+    }
+    else
+    {
+        ui->signup_password->setEchoMode(QLineEdit::Password) ;
+    }
+}
+
+
+void process::on_signup_passagainechomod_clicked(bool checked)
+{
+    if (checked)
+    {
+        ui->signu_passwordagain->setEchoMode(QLineEdit::Normal) ;
+    }
+    else
+    {
+        ui->signu_passwordagain->setEchoMode(QLineEdit::Password) ;
+    }
+}
+
+
+void process::on_accedit_passechomod_clicked(bool checked)
+{
+    if (checked)
+    {
+        ui->accedit_password->setEchoMode(QLineEdit::Normal) ;
+    }
+    else
+    {
+        ui->accedit_password->setEchoMode(QLineEdit::Password) ;
+    }
+}
+
+
+void process::on_accedit_newpassechomod_clicked(bool checked)
+{
+    if (checked)
+    {
+        ui->accedit_newpassword->setEchoMode(QLineEdit::Normal) ;
+    }
+    else
+    {
+        ui->accedit_newpassword->setEchoMode(QLineEdit::Password) ;
+    }
+}
+
+
+void process::on_accedit_newpassagainechomod_clicked(bool checked)
+{
+    if (checked)
+    {
+        ui->accedit_newpasswordagain->setEchoMode(QLineEdit::Normal) ;
+    }
+    else
+    {
+        ui->accedit_newpasswordagain->setEchoMode(QLineEdit::Password) ;
+    }
+}
+
+const movie_class &process::getCurrent_movie() const
+{
+    return current_movie;
+}
+
+void process::setCurrent_movie(const movie_class &newCurrent_movie)
+{
+    current_movie = newCurrent_movie;
+}
+
+
+void process::on_vote_cancelbtn_clicked()
+{
+    this->close() ;
+}
+
+
+void process::on_vote_confirmbtn_clicked()
+{
+    int ret = QMessageBox :: critical(this , "close" , "are you sure ???\nyou can't vote again!!" , "yes"  ,"cansel");
+    if (ret == 0)
+    {
+        int i= ui->vote_parametr->value() ;
+        double tt = current_movie.getAverageRating()*current_movie.getNumvotes() ;
+        current_movie.setAverageRating((tt + (i/10) )/(current_movie.getNumvotes()+1)) ;
+        current_movie.setNumvotes(current_movie.getNumvotes()+1) ;
+        this->close();
+    }
+    else if (ret ==1)
+    {
+        return;
+    }
 }
 

@@ -14,6 +14,8 @@ class file
 {
 public:
     file();
+    void edit_movie (movie_class tmp) ;
+    void edit_user (User tmp );
     QStringList items (QString x) ;
     QList<movie_class> my_imdb_class ;
     QList<User> my_user ;
@@ -27,6 +29,8 @@ public:
     QString disseparaor (QStringList list , QString sep ) ;
     QList<movie_class> mlistcontains (QString n) ;
     QList<User> ulistcontains (QString n) ;
+    void remove_user (QString username);
+    void remove_movie (QString ID) ;
 };
 
 #endif // FILE_CLASS_H

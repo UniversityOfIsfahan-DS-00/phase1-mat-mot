@@ -55,6 +55,16 @@ User::User()
     this->hpassword = 0 ;
 }
 
+bool User::containsmovie(QString n)
+{
+    for (int i=0 ; i < votedlist.size() ; i++)
+    {
+        if (votedlist.at(i).contains(n))
+            return true;
+    }
+    return false;
+}
+
 bool User::contains(QString n)
 {
     if (this->username.contains(n))

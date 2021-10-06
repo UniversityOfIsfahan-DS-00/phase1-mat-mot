@@ -28,18 +28,46 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="signup_password">
-        <property name="placeholderText">
-         <string>Password</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_13">
+        <item>
+         <widget class="QLineEdit" name="signup_password">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Password</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="signup_passechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QLineEdit" name="signu_passwordagain">
-        <property name="placeholderText">
-         <string>Password again</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_14">
+        <item>
+         <widget class="QLineEdit" name="signu_passwordagain">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Password again</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="signup_passagainechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <widget class="QLineEdit" name="signup_emai">
@@ -98,11 +126,28 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="signin_password">
-        <property name="placeholderText">
-         <string>Password</string>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="topMargin">
+         <number>0</number>
         </property>
-       </widget>
+        <item>
+         <widget class="QLineEdit" name="signin_password">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+          <property name="placeholderText">
+           <string>Password</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="signin_passechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <widget class="QLineEdit" name="signin_email">
@@ -229,7 +274,18 @@ thanks for your attention !</string>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="accedit_password"/>
+         <widget class="QLineEdit" name="accedit_password">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="accedit_passechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -254,7 +310,18 @@ thanks for your attention !</string>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="accedit_newpassword"/>
+         <widget class="QLineEdit" name="accedit_newpassword">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="accedit_newpassechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -268,7 +335,18 @@ thanks for your attention !</string>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="accedit_newpasswordagain"/>
+         <widget class="QLineEdit" name="accedit_newpasswordagain">
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="accedit_newpassagainechomod">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

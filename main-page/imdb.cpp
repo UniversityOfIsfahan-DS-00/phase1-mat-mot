@@ -19,8 +19,8 @@ IMDB::IMDB(QWidget *parent)
         tmp.setEmail("ADMIN@ADMIN.com");
         data.my_user.push_back(tmp) ;
     }
-    process * tmp = new process () ;
-    tmp->open() ;
+    //process * tmp = new process () ;
+    //tmp->open() ;
 
 }
 
@@ -113,5 +113,55 @@ void IMDB::on_title_list_itemClicked(QListWidgetItem *item)
     tmp += "averageRating :\n" + QString::number( temp.getAverageRating()) +"\n" ;
     tmp += "number of votes :\n" + QString::number( temp.getNumvotes()) +"\n" ;
     ui->info_TextEdit->setPlainText(tmp) ;
+}
+
+
+void IMDB::on_actionVote_Movie_triggered()
+{
+    QString tt , tm = ui->title_list->currentItem()->text() ;
+    for (int i=0 ; i<tm.size() ; i++)
+        if (tm[i]== '[')
+        {
+            i++ ;
+            while (tm[i]!= ']')
+            {
+                tt += tm[i] ;
+                i++ ;
+            }
+        }
+    if (current_user.getUsername() == "")
+    {
+        QMessageBox::information(this , "vote" , "please sign in first then vote the movies !") ;
+        return;
+    }
+    if (current_user.containsmovie(tt))
+    {
+        QMessageBox::information(this , "vote" , "you can vote a movie only once !!") ;
+        return;
+    }
+    process * tmp = new process () ;
+    tmp->setChild_d( & this->data) ;
+    tmp->setCurrent_movie(data.mlistcontains(tt).at(0));
+    tmp->setpos("Vote") ;
+    tmp->exec() ;
+
+    this->data.edit_movie(tmp->getCurrent_movie()) ;
+    QStringList ttt =  current_user.getVotedlist() ;
+    tt.append(tmp->getCurrent_movie().getID()) ;
+    current_user.setVotedlist(ttt) ;
+    data.edit_user(current_user) ;
+    delete tmp ;
+    this->setlist();
+}
+
+
+void IMDB::on_actionLogin_triggered()
+{
+    process *tmp =new process() ;
+    tmp->setChild_d(&data) ;
+    tmp->setpos("sign in") ;
+    tmp->exec() ;
+    current_user = tmp->getCurrent_user() ;
+    delete tmp ;
 }
 

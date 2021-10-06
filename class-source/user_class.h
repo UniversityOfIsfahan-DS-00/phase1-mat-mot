@@ -12,6 +12,7 @@ class User
     QStringList votedlist ;
 public:
     User();
+    bool containsmovie (QString n);
     bool contains (QString n) ;
     const QString &getName() const;
     void setName(const QString &newName);
