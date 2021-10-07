@@ -176,16 +176,22 @@ QStringList file::separator(QString orginal, QString sep)
 QString file::disseparaor(QStringList list, QString sep)
 {
     QString tmp ;
-    int i=list.size() ;
-    if ( i > 0 )
+    for (int i=0 ; i<list.size() ; i++)
     {
-        while (i<-1)
-        {
-            tmp += list.at(i) + sep ;
-            i++ ;
-        }
         tmp += list.at(i) ;
+        if (i != list.size()-1)
+            tmp += sep ;
     }
+//    int i=list.size()-1 ;
+//    if ( i > 0 )
+//    {
+//        while (i-1)
+//        {
+//            tmp += list.at(i) + sep ;
+//            i-- ;
+//        }
+//        tmp += list.at(i) ;
+//    }
     return tmp ;
 }
 

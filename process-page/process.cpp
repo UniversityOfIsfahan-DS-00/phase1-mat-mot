@@ -1,6 +1,13 @@
 #include "process.h"
 #include "ui_process.h"
 
+double process::round_1d(double x)
+{
+    x *= 10 ;
+    x = (int)x ;
+    return x/10;
+}
+
 process::process(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::process)
@@ -347,10 +354,11 @@ void process::on_vote_confirmbtn_clicked()
     {
         int i= ui->vote_spinbox->value() ;
         double tt = current_movie.getAverageRating()*current_movie.getNumvotes() ;
-        current_movie.setAverageRating((tt + (i) )/(current_movie.getNumvotes()+1)) ;
+        tt = (tt + (i) )/(current_movie.getNumvotes()+1) ;
+        current_movie.setAverageRating(round_1d(tt)) ;
         current_movie.setNumvotes(current_movie.getNumvotes()+1) ;
         QStringList ttt =  current_user.getVotedlist() ;
-        ttt.append(this->getCurrent_movie().getID()) ;
+        ttt.push_back(ui->vote_id->text()) ;
         current_user.setVotedlist(ttt) ;
         this->close();
     }

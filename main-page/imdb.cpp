@@ -153,10 +153,12 @@ void IMDB::on_actionVote_Movie_triggered()
     process * tmp = new process () ;
     tmp->setChild_d( & this->data) ;
     tmp->setCurrent_movie(data.mlistcontains(tt).at(0));
+    tmp->setCurrent_user(current_user) ;
     tmp->setpos("Vote") ;
     tmp->exec() ;
     this->data.edit_movie(tmp->getCurrent_movie()) ;
     data.edit_user(tmp->getCurrent_user()) ;
+    current_user =tmp->getCurrent_user();
     delete tmp ;
     this->on_actionRefresh_triggered();
 }

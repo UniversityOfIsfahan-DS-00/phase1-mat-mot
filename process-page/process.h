@@ -22,6 +22,7 @@ class process : public QDialog
     Q_OBJECT
 
 public:
+    double round_1d (double x ) ;
     explicit process(QWidget *parent = nullptr);
     ~process();
 
