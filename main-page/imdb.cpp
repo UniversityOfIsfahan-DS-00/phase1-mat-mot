@@ -186,14 +186,11 @@ void IMDB::on_actionLogin_triggered()
 void IMDB::on_actionTop_10_triggered()
 {
     ui->title_list->clear();
+    ui->info_TextEdit->clear();
     ui->title_list->setSortingEnabled(false) ;
-     QVector<movie_class> tmp =  data.sort_movie();
-//     for (int i=0 , j= data.my_imdb_class.size() ; i<data.my_imdb_class.size() && j>=0 ;j-- , i++)
-//     {
-//        ui->title_list->addItem(QString::number(i+1)+". "+data.my_imdb_class.at(j).getTitle()+ " [" + data.my_imdb_class.at(j).getID()+"]");
-//     }
-     for (int i=tmp.size()-1 , j=1 ; i>= 0 ; j++ , i--)
-         ui->title_list->addItem(QString::number(j) + ". "+tmp.at(i).getTitle()+" [" + tmp.at(i).getID()+"]");
+    QVector<movie_class> tmp =  data.sort_movie();
+    for (int i=tmp.size()-1 , j=1 ; i>= 0  && j < 11; j++ , i--)
+        ui->title_list->addItem(QString::number(j) + ". "+tmp.at(i).getTitle()+" [" + tmp.at(i).getID()+"]");
 }
 
 
@@ -262,5 +259,22 @@ void IMDB::on_actionEdit_triggered()
 void IMDB::on_actionSign_in_triggered()
 {
     this->on_actionLogin_triggered();
+}
+
+
+void IMDB::on_actionSort_base_rating_triggered()
+{
+    ui->title_list->clear();
+    ui->info_TextEdit->clear();
+    ui->title_list->setSortingEnabled(false) ;
+    QVector<movie_class> tmp =  data.sort_movie();
+    for (int i=tmp.size()-1 , j=1 ; i>= 0 ; j++ , i--)
+        ui->title_list->addItem(QString::number(j) + ". "+tmp.at(i).getTitle()+" [" + tmp.at(i).getID()+"]");
+}
+
+
+void IMDB::on_refreshbtn_clicked()
+{
+    this->on_actionRefresh_triggered();
 }
 

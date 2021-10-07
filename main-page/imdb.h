@@ -55,6 +55,10 @@ private slots:
 
     void on_actionSign_in_triggered();
 
+    void on_actionSort_base_rating_triggered();
+
+    void on_refreshbtn_clicked();
+
 private:
     Ui::IMDB *ui;
     file data ;

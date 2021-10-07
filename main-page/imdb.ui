@@ -16,11 +16,29 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLineEdit" name="search_box">
-      <property name="placeholderText">
-       <string>search box</string>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMinimumSize</enum>
       </property>
-     </widget>
+      <item>
+       <widget class="QLineEdit" name="search_box">
+        <property name="placeholderText">
+         <string>search box</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="refreshbtn">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../data/icon.qrc">
+          <normaloff>:/new/icon/svg/fi-rr-refresh.svg</normaloff>:/new/icon/svg/fi-rr-refresh.svg</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <widget class="QSplitter" name="splitter">
@@ -74,6 +92,7 @@
      <string>Manage</string>
     </property>
     <addaction name="actionVote_Movie"/>
+    <addaction name="actionSort_base_rating"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -91,56 +110,107 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSign_in">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-user.svg</normaloff>:/new/icon/svg/fi-rr-user.svg</iconset>
+   </property>
    <property name="text">
     <string>Sign In</string>
    </property>
   </action>
   <action name="actionEdit">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-settings-sliders.svg</normaloff>:/new/icon/svg/fi-rr-settings-sliders.svg</iconset>
+   </property>
    <property name="text">
     <string>Edit</string>
    </property>
   </action>
   <action name="actionSign_up">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-user-add.svg</normaloff>:/new/icon/svg/fi-rr-user-add.svg</iconset>
+   </property>
    <property name="text">
     <string>Sign Up</string>
    </property>
   </action>
   <action name="actionLog_out">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-user-delete.svg</normaloff>:/new/icon/svg/fi-rr-user-delete.svg</iconset>
+   </property>
    <property name="text">
     <string>Log Out</string>
    </property>
   </action>
   <action name="actionSave_Data">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-file-check.svg</normaloff>:/new/icon/svg/fi-rr-file-check.svg</iconset>
+   </property>
    <property name="text">
     <string>Save Data</string>
    </property>
   </action>
   <action name="actionCountact_Us">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-signal-alt-1.svg</normaloff>:/new/icon/svg/fi-rr-signal-alt-1.svg</iconset>
+   </property>
    <property name="text">
     <string>Contact Us</string>
    </property>
   </action>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-power.svg</normaloff>:/new/icon/svg/fi-rr-power.svg</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>
   </action>
   <action name="actionTop_10">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-stats.svg</normaloff>:/new/icon/svg/fi-rr-stats.svg</iconset>
+   </property>
    <property name="text">
     <string>Top 10</string>
    </property>
   </action>
   <action name="actionVote_Movie">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-file.svg</normaloff>:/new/icon/svg/fi-rr-file.svg</iconset>
+   </property>
    <property name="text">
     <string>Vote Movie</string>
    </property>
   </action>
   <action name="actionRefresh">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-refresh.svg</normaloff>:/new/icon/svg/fi-rr-refresh.svg</iconset>
+   </property>
    <property name="text">
     <string>Refresh</string>
    </property>
   </action>
+  <action name="actionSort_base_rating">
+   <property name="icon">
+    <iconset resource="../data/icon.qrc">
+     <normaloff>:/new/icon/svg/fi-rr-pulse.svg</normaloff>:/new/icon/svg/fi-rr-pulse.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Sort base rating</string>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../data/icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
