@@ -19,6 +19,10 @@ IMDB::IMDB(QWidget *parent)
         tmp.setEmail("ADMIN@ADMIN.com");
         data.my_user.push_back(tmp) ;
     }
+    ui->actionLog_out->setEnabled(false);
+    ui->actionEdit->setEnabled(false);
+    ui->actionVote_Movie->setEnabled(false);
+
     //process * tmp = new process () ;
     //tmp->open() ;
 
@@ -66,7 +70,7 @@ void IMDB::on_actionCountact_Us_triggered()
     QString tmp ;
     tmp += "Phone number : 09015743537\nAddress : University of Isfahan , Ansar building\n" ;
     tmp += "Telegram ID : @Mat-Mot\nInstgram ID : matin_motmaen\n";
-    tmp += "Git repo : https://github.com/mat-mot/ap-final-project.git\nEmail addres : matinmotmaen@gmail.com\n" ;
+    tmp += "Git repo : https://github.com/mat-mot\nEmail addres : matinmotmaen@gmail.com\n" ;
     tmp += "this program wrriten by mat-mot (*_*)" ;
     QMessageBox::information(this , "Contact Us" , tmp ) ;
 }
@@ -104,13 +108,13 @@ void IMDB::on_title_list_itemClicked(QListWidgetItem *item)
     tmp += "Type :\n" ;
     tmpp.clear();
     tmpp = temp.getType() ;
-    for (int i=0 ; i<temp.getType().size() ;i++)
-        tmp += tmpp.at(i) + "-" ;
+    for (int i=0 ; i<tmpp.size()  ;i++)
+        tmp += tmpp.at(i) + "\n" ;
     tmp += "Attributes :\n" ;
     tmpp.clear() ;
     tmpp = temp.getAttributes() ;
-    for (int i=0 ; i<tmpp.size() ;i++)
-        tmp += tmpp.at(i) + "-" ;
+    for (int i=0 ; i<tmpp.size()  ;i++)
+        tmp += tmpp.at(i) + "\n" ;
     tmp += "is orginal title :\n" + QString::number( temp.getIsorginaltitle()) +"\n" ;
     tmp += "averageRating :\n" + QString::number( temp.getAverageRating()) +"\n" ;
     tmp += "number of votes :\n" + QString::number( temp.getNumvotes()) +"\n" ;
@@ -136,7 +140,7 @@ void IMDB::on_actionVote_Movie_triggered()
                 i++ ;
             }
         }
-    if (current_user.getUsername() == "")
+    if (current_user.getUsername().isEmpty())
     {
         QMessageBox::information(this , "vote" , "please sign in first then vote the movies !") ;
         return;
@@ -151,14 +155,10 @@ void IMDB::on_actionVote_Movie_triggered()
     tmp->setCurrent_movie(data.mlistcontains(tt).at(0));
     tmp->setpos("Vote") ;
     tmp->exec() ;
-
     this->data.edit_movie(tmp->getCurrent_movie()) ;
-    QStringList ttt =  current_user.getVotedlist() ;
-    ttt.append(tmp->getCurrent_movie().getID()) ;
-    current_user.setVotedlist(ttt) ;
-    data.edit_user(current_user) ;
+    data.edit_user(tmp->getCurrent_user()) ;
     delete tmp ;
-    this->setlist();
+    this->on_actionRefresh_triggered();
 }
 
 
@@ -169,6 +169,14 @@ void IMDB::on_actionLogin_triggered()
     tmp->setpos("sign in") ;
     tmp->exec() ;
     current_user = tmp->getCurrent_user() ;
+    if (!current_user.getUsername().isEmpty())
+    {
+        ui->actionLog_out->setEnabled(true);
+        ui->actionEdit->setEnabled(true);
+        ui->actionVote_Movie->setEnabled(true);
+        ui->actionSign_in->setEnabled(false);
+        ui->actionSign_up->setEnabled(false);
+    }
     delete tmp ;
 }
 
@@ -194,5 +202,63 @@ void IMDB::on_actionRefresh_triggered()
     this->setlist();
     ui->title_list->setSortingEnabled(true) ;
     ui->info_TextEdit->clear();
+}
+
+
+void IMDB::on_title_list_itemDoubleClicked()
+{
+    this->on_actionVote_Movie_triggered() ;
+}
+
+
+void IMDB::on_actionLog_out_triggered()
+{
+    current_user.~User();
+    ui->actionLog_out->setEnabled(false);
+    ui->actionEdit->setEnabled(false);
+    ui->actionVote_Movie->setEnabled(false);
+    ui->actionSign_in->setEnabled(true);
+    ui->actionSign_up->setEnabled(true);
+
+}
+
+
+void IMDB::on_actionSign_up_triggered()
+{
+    process *tmp =new process() ;
+    tmp->setChild_d(&data) ;
+    tmp->setpos("sign up") ;
+    tmp->exec() ;
+    current_user = tmp->getCurrent_user() ;
+    if (!current_user.getUsername().isEmpty())
+    {
+        ui->actionLog_out->setEnabled(true);
+        ui->actionEdit->setEnabled(true);
+        ui->actionVote_Movie->setEnabled(true);
+        ui->actionSign_in->setEnabled(false);
+        ui->actionSign_up->setEnabled(false);
+    }
+    delete tmp ;
+}
+
+
+void IMDB::on_actionEdit_triggered()
+{
+    process *tmp =new process() ;
+    tmp->setChild_d(&data) ;
+    tmp->setCurrent_user(current_user) ;
+    tmp->setpos("account edit") ;
+
+    tmp->exec() ;
+    current_user = tmp->getCurrent_user() ;
+    data.edit_user(current_user) ;
+
+    delete tmp ;
+}
+
+
+void IMDB::on_actionSign_in_triggered()
+{
+    this->on_actionLogin_triggered();
 }
 

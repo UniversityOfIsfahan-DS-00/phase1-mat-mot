@@ -55,6 +55,15 @@ User::User()
     this->hpassword = 0 ;
 }
 
+User::~User()
+{
+    this->name.clear();
+    this->username.clear();
+    this->hpassword=0;
+    this->email.clear();
+    this->votedlist.clear();
+}
+
 bool User::containsmovie(QString n)
 {
     for (int i=0 ; i < votedlist.size() ; i++)

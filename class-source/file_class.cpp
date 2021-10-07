@@ -176,9 +176,15 @@ QStringList file::separator(QString orginal, QString sep)
 QString file::disseparaor(QStringList list, QString sep)
 {
     QString tmp ;
-    for (int i=0 ; i<list.size() ; i++)
+    int i=list.size() ;
+    if ( i > 0 )
     {
-        tmp += list.at(i) + sep ;
+        while (i<-1)
+        {
+            tmp += list.at(i) + sep ;
+            i++ ;
+        }
+        tmp += list.at(i) ;
     }
     return tmp ;
 }
@@ -261,17 +267,17 @@ QVector<movie_class> file::sort_movie()
             }
         }
     return tmp;
-//    auto iia=my_imdb_class.cbegin() ;
-//    for (auto ito = this->my_imdb_class.begin() ; ito  != my_imdb_class.end() ; ++ito )
-//        for ( auto itto = this->my_imdb_class.begin() ; itto  != iia ; ++itto, ++iia)
-//        {
-//            if ( *itto > *(++itto) )
-//            {
-//                movie_class x = *(++itto) ;
-//                *(++itto) = *itto ;
-//                *itto = x ;
-//            }
-//        }
+    //    auto iia=my_imdb_class.cbegin() ;
+    //    for (auto ito = this->my_imdb_class.begin() ; ito  != my_imdb_class.end() ; ++ito )
+    //        for ( auto itto = this->my_imdb_class.begin() ; itto  != iia ; ++itto, ++iia)
+    //        {
+    //            if ( *itto > *(++itto) )
+    //            {
+    //                movie_class x = *(++itto) ;
+    //                *(++itto) = *itto ;
+    //                *itto = x ;
+    //            }
+    //        }
 }
 
 QStringList file::items(QString x)

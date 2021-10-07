@@ -45,6 +45,16 @@ private slots:
 
     void on_actionRefresh_triggered();
 
+    void on_title_list_itemDoubleClicked();
+
+    void on_actionLog_out_triggered();
+
+    void on_actionSign_up_triggered();
+
+    void on_actionEdit_triggered();
+
+    void on_actionSign_in_triggered();
+
 private:
     Ui::IMDB *ui;
     file data ;

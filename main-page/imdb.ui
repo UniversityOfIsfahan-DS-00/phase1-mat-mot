@@ -63,7 +63,7 @@
     <property name="title">
      <string>Account</string>
     </property>
-    <addaction name="actionLogin"/>
+    <addaction name="actionSign_in"/>
     <addaction name="actionEdit"/>
     <addaction name="actionSign_up"/>
     <addaction name="separator"/>
@@ -90,7 +90,7 @@
    <addaction name="menuTools"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionLogin">
+  <action name="actionSign_in">
    <property name="text">
     <string>Sign In</string>
    </property>

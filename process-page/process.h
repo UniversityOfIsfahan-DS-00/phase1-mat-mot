@@ -69,6 +69,10 @@ private slots:
 
     void on_vote_confirmbtn_clicked();
 
+    void on_accedit_cancelbtn_clicked();
+
+    void on_accedit_confirmbtn_clicked();
+
 private:
     Ui::process *ui;
     //file child_data ;
